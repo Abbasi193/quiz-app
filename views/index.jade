@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    title Quiz
+    link(rel="stylesheet", href="style.css")
+    
+  body
+    h1 Quiz App
+    - var k=0
+    - for (var i=0; i<4; i++) {
+      div(class='hidden')
+        - for (var j=0; j<5; j++,k++) {
+            br
+            p #{k + 1}. #{data[k].question}
+            each option in data[k].options
+              input(type=`radio`,name='q#{k}',value='#{option}')
+              span #{option}         
+        - }
+    - }
+    br
+    button(onclick='handleNext()') Next
+  script(type='text/javascript',src='script.js')
+
